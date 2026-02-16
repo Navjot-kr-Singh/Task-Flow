@@ -269,9 +269,11 @@ npm run dev
 Create a `.env` file inside `server/`:
 
 ```
+NODE_ENV=development
 PORT=5001
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
+MONGO_URI=mongodb://localhost:27017/mern-task-app
+JWT_SECRET=dev_secret_key_123
+JWT_EXPIRE=30d
 ```
 
 Backend runs on:
