@@ -40,26 +40,26 @@ const ListColumn = ({ list, tasks, isAdmin, onAddTask, onDeleteList, onStatusCha
         <div
             ref={setNodeRef}
             style={style}
-            className="w-80 flex-shrink-0 bg-gray-100 rounded-lg flex flex-col max-h-[calc(100vh-140px)]"
+            className="w-80 flex-shrink-0 bg-black/40 backdrop-blur-md rounded-lg flex flex-col max-h-[calc(100vh-140px)] border border-white/10"
         >
-            <div className="p-4 flex items-center justify-between border-b border-gray-200 group">
+            <div className="p-4 flex items-center justify-between border-b border-white/10 group">
                 <div className="flex items-center gap-2">
                     {isAdmin && (
-                        <div {...attributes} {...listeners} className="cursor-grab text-gray-500 hover:text-gray-700">
+                        <div {...attributes} {...listeners} className="cursor-grab text-gray-400 hover:text-white">
                             <GripHorizontal className="h-5 w-5" />
                         </div>
                     )}
-                    <h3 className="font-semibold text-gray-700">{list.name}</h3>
+                    <h3 className="font-semibold text-white">{list.name}</h3>
                     <span className="text-gray-400 text-sm">({tasks.length})</span>
                 </div>
                 {isAdmin && (
-                    <button onClick={() => onDeleteList(list._id)} className="text-gray-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button onClick={() => onDeleteList(list._id)} className="text-gray-400 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity">
                         <Trash2 className="h-4 w-4" />
                     </button>
                 )}
             </div>
 
-            <div className="flex-1 overflow-y-auto p-4 space-y-3">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar">
                 <SortableContext items={taskIds} strategy={verticalListSortingStrategy}>
                     {tasks.map((task) => (
                         <TaskCard
@@ -74,10 +74,10 @@ const ListColumn = ({ list, tasks, isAdmin, onAddTask, onDeleteList, onStatusCha
             </div>
 
             {isAdmin && (
-                <div className="p-4 border-t border-gray-200">
+                <div className="p-4 border-t border-white/10">
                     <button
                         onClick={onAddTask}
-                        className="flex items-center justify-center w-full py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-200 rounded-md transition-colors border-2 border-dashed border-gray-300 hover:border-gray-400"
+                        className="flex items-center justify-center w-full py-2 text-sm text-gray-300 hover:text-white hover:bg-white/10 rounded-md transition-colors border-2 border-dashed border-gray-500 hover:border-gray-400"
                     >
                         <Plus className="h-4 w-4 mr-2" />
                         Add Task

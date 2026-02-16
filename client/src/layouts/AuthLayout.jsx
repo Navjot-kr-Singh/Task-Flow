@@ -10,17 +10,10 @@ const AuthLayout = () => {
     if (isAuthenticated) return <Navigate to="/" />;
 
     return (
-        <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-            <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
-                <div className="mx-auto h-12 w-12 bg-indigo-600 rounded-lg flex items-center justify-center">
-                    <Layout className="h-8 w-8 text-white" />
-                </div>
-                <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                    Task Collaboration Platform
-                </h2>
+        <div className="min-h-screen flex flex-col justify-center items-center py-12 sm:px-6 lg:px-8">
+            <div className="w-full max-w-4xl relative">
+                <Outlet />
             </div>
-
-            <Outlet />
         </div>
     );
 };

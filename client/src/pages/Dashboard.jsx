@@ -51,9 +51,9 @@ const Dashboard = () => {
     return (
         <div>
             <div className="flex justify-between items-center mb-6">
-                <h1 className="text-2xl font-bold text-gray-900">Your Boards</h1>
+                <h1 className="text-2xl font-bold text-white shadow-sm">Your Boards</h1>
                 {isAdmin && (
-                    <Button onClick={() => setIsModalOpen(true)}>
+                    <Button onClick={() => setIsModalOpen(true)} className="shadow-lg shadow-indigo-500/30">
                         <Plus className="h-4 w-4 mr-2" />
                         New Board
                     </Button>
@@ -62,7 +62,7 @@ const Dashboard = () => {
 
             {isLoading && boards.length === 0 ? (
                 <div className="flex justify-center items-center h-64">
-                    <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-indigo-600"></div>
+                    <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-indigo-400"></div>
                 </div>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -70,16 +70,16 @@ const Dashboard = () => {
                         <Link
                             key={board._id}
                             to={`/board/${board._id}`}
-                            className="block p-6 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow relative group"
+                            className="block p-6 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/15 transition-all relative group"
                         >
-                            <h3 className="text-lg font-medium text-gray-900 mb-2 truncate">{board.name}</h3>
-                            <p className="text-sm text-gray-500">
+                            <h3 className="text-lg font-medium text-white mb-2 truncate">{board.name}</h3>
+                            <p className="text-sm text-gray-300">
                                 Created by {board.owner === user.id ? 'You' : 'Admin'}
                             </p>
                             {isAdmin && board.owner === user.id && (
                                 <button
                                     onClick={(e) => handleDeleteBoard(e, board._id)}
-                                    className="absolute top-4 right-4 p-2 text-gray-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity"
+                                    className="absolute top-4 right-4 p-2 text-gray-400 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"
                                 >
                                     <Trash2 className="h-4 w-4" />
                                 </button>
@@ -88,9 +88,9 @@ const Dashboard = () => {
                     ))}
 
                     {boards.length === 0 && (
-                        <div className="col-span-full text-center py-12 bg-white rounded-lg border border-dashed border-gray-300">
-                            <h3 className="mt-2 text-sm font-medium text-gray-900">No boards</h3>
-                            <p className="mt-1 text-sm text-gray-500">
+                        <div className="col-span-full text-center py-12 bg-white/5 backdrop-blur-sm rounded-lg border border-dashed border-white/20">
+                            <h3 className="mt-2 text-sm font-medium text-white">No boards</h3>
+                            <p className="mt-1 text-sm text-gray-400">
                                 {isAdmin ? 'Get started by creating a new board.' : 'Wait for an admin to add you to a board.'}
                             </p>
                             {isAdmin && (

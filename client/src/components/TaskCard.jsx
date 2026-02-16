@@ -38,7 +38,7 @@ const TaskCard = ({ task, isAdmin, onDelete, onStatusChange }) => {
             <div
                 ref={setNodeRef}
                 style={style}
-                className="bg-gray-100 p-4 rounded-lg shadow-inner h-[100px] border-2 border-dashed border-gray-300 opacity-50"
+                className="bg-white/5 p-4 rounded-lg shadow-inner h-[100px] border-2 border-dashed border-gray-400 opacity-50"
             />
         );
     }
@@ -47,7 +47,7 @@ const TaskCard = ({ task, isAdmin, onDelete, onStatusChange }) => {
         <div
             ref={setNodeRef}
             style={style}
-            className="bg-white p-3 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow group relative"
+            className="bg-white/95 backdrop-blur-sm p-3 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow group relative"
         >
             {/* Drag Handle - Only for Admin */}
             {isAdmin && (

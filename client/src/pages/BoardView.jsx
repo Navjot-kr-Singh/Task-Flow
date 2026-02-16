@@ -321,7 +321,7 @@ const BoardView = () => {
     return (
         <div className="h-full flex flex-col">
             <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
-                <h1 className="text-2xl font-bold text-gray-900">{currentBoard.name}</h1>
+                <h1 className="text-2xl font-bold text-white shadow-sm">{currentBoard.name}</h1>
 
                 <div className="flex items-center gap-4 w-full md:w-auto">
                     {/* Search Bar */}
@@ -332,7 +332,7 @@ const BoardView = () => {
                         <input
                             type="text"
                             placeholder="Search tasks..."
-                            className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 p-2.5"
+                            className="bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-gray-400 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 p-2.5"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
@@ -397,8 +397,8 @@ const BoardView = () => {
 
                 <DragOverlay>
                     {activeList ? (
-                        <div className="w-80 bg-gray-100 rounded-lg p-4 opacity-80 h-[300px]">
-                            <div className="font-bold mb-4">{activeList.name}</div>
+                        <div className="w-80 bg-white/10 backdrop-blur-md rounded-lg p-4 opacity-80 h-[300px] border border-white/20">
+                            <div className="font-bold mb-4 text-white">{activeList.name}</div>
                         </div>
                     ) : activeTask ? (
                         <TaskCard task={activeTask} />
